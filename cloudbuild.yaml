@@ -1,6 +1,8 @@
 steps:  # Build step 0
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['pull', 'gcr.io/$PROJECT_ID/$REPO_NAME:nginx-latest-image']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['pull', 'gcr.io/$PROJECT_ID/$REPO_NAME:nginx-latest-image']
+    args: ['images']
 - name: 'gcr.io/cloud-builders/docker' # Official builder path
   dir: 'stable/alpine'
   args: [
@@ -10,4 +12,6 @@ steps:  # Build step 0
           '-f', 'Dockerfile', # Docker layer info file
           '.'
         ] # Build command
+- name: 'gcr.io/cloud-builders/docker'
+    args: ['images']
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME:nginx-latest-image'] # list
