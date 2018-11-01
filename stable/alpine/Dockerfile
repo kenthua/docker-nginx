@@ -143,4 +143,6 @@ EXPOSE 80
 
 STOPSIGNAL SIGTERM
 
+RUN ls
+
 CMD ["nginx", "-g", "daemon off;"]
